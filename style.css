@@ -10,6 +10,10 @@
   --clr-exercise-green-400: hsl(145, 58%, 55%);
   --clr-social-purple-700: hsl(264, 64%, 52%);
   --clr-selfcare-yellow-300: hsl(43, 84%, 65%);
+  
+  --clr-error-background: hsl(0, 100%, 95%);
+  --clr-error-border: hsl(0, 100%, 80%);
+  --clr-error-color: hsl(0, 100%, 60%);
 
   /* Neutral */
   --clr-navy-950: hsl(226, 43%, 10%);
@@ -77,9 +81,11 @@
     body {
       background-color: var(--clr-navy-950);
       font-family: var(--ff-primary);
-      width: 100%;
-      min-height: 100vh;
+    }
+
+    main {
       display: grid;
+      min-height: 100vh;
       place-items: center;
       padding: 5rem 1.5rem;
     }
@@ -103,12 +109,12 @@
 
 @layer helper {
   .error-message {
-    color: hsl(0, 100%, 60%);
-    background-color: hsl(0, 100%, 95%);
+    color: var(--clr-error-color);
+    background-color: var(--clr-error-background);
     padding: .75rem 1.5rem;
-    border: 1px solid hsl(0, 100%, 80%);
-    border-radius: 0.5rem;    
-    max-width: 400px;
+    border: 1px solid var(--clr-error-border);
+    border-radius: .5rem;    
+    max-width: 25rem;
     text-align: center;
 
     &.hidden {
@@ -148,7 +154,7 @@
 
         &:hover, 
         &:active {
-          background-color: color-mix(in srgb, var(--clr-navy-900), white 10%);
+          background-color: color-mix(in srgb, var(--clr-navy-900), var(--clr-white) 10%);
           cursor: pointer;
         }
       }
@@ -193,7 +199,6 @@
 
   .sidebar__user {
     background-color: var(--clr-primary-purple-600);
-    border-radius: var(--radius);
     border-radius: var(--radius);
     padding-inline: 2rem;
   }
@@ -241,7 +246,7 @@
 
 @layer responsive {
   @media (min-width: 53.75rem) {
-    body {
+    main {
       padding: 8.1rem 2.4rem;
     }
 
